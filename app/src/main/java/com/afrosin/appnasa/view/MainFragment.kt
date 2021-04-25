@@ -86,6 +86,12 @@ class MainFragment : Fragment() {
                 getString(R.string.favourite),
                 Toast.LENGTH_SHORT
             ).show()
+            R.id.app_bar_settings -> activity
+                ?.supportFragmentManager
+                ?.beginTransaction()
+                ?.replace(R.id.container, SettingsFragment.newInstance())
+                ?.addToBackStack(null)
+                ?.commit()
             android.R.id.home -> {
                 activity?.let {
                     BottomNavigationDrawerFragment().show(it.supportFragmentManager, "tag")
