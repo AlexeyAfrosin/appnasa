@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <com.google.android.material.chip.ChipGroup xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/gr_select_image_day"
+    android:id="@+id/gr_select_app_theme"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="@dimen/padding_10dp"
@@ -10,24 +9,17 @@
     app:singleSelection="true">
 
     <com.google.android.material.chip.Chip
-        android:id="@+id/gr_ch_current_day"
+        android:id="@+id/gr_ch_theme_indigo"
         style="@style/Widget.MaterialComponents.Chip.Filter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:checked="true"
-        android:text="@string/ch_current_image" />
+        android:text="@string/theme_indigo" />
 
     <com.google.android.material.chip.Chip
-        android:id="@+id/gr_ch_yesterday_day"
+        android:id="@+id/gr_ch_theme_pink"
         style="@style/Widget.MaterialComponents.Chip.Filter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/ch_yesterday_image" />
-
-    <com.google.android.material.chip.Chip
-        android:id="@+id/gr_ch_day_before_yesterday"
-        style="@style/Widget.MaterialComponents.Chip.Filter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/day_before_yesterday" />
+        android:text="@string/theme_pink" />
 </com.google.android.material.chip.ChipGroup>
