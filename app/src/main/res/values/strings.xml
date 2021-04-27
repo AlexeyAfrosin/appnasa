@@ -14,4 +14,10 @@
     <string name="theme_indigo">Индиго</string>
     <string name="theme_pink">Розовая</string>
     <string name="theme_apply_text">Тема \"%s\" применена</string>
+
+    <string-array name="image_tab_names">
+        <item>Сегодняшняя</item>
+        <item>Вчерашняя</item>
+        <item>Позавчерашняя</item>
+    </string-array>
 </resources>

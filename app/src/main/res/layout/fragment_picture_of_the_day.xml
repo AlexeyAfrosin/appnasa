@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.PictureOfTheDayFragment">
+
+
+    <com.afrosin.appnasa.utils.EquilateralImageView
+        android:id="@+id/current_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/current_image_margin_top"
+        android:contentDescription="@string/current_image"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_broken_image" />
+
+    <WebView
+        android:id="@+id/web_view_youtube"
+        android:layout_width="@dimen/web_view_youtube_width"
+        android:layout_height="@dimen/web_view_youtube_height"
+        android:layout_gravity="center"
+        android:scaleType="fitCenter"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+
+    <include
+        android:id="@+id/include_bottom_sheet_layout"
+        layout="@layout/bottom_sheet_layout" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
