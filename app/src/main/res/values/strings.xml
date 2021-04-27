@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">AppNasa</string>
+    <string name="current_image">текущее изображение</string>
+    <string name="wiki_search_hint">введите строку для поиска</string>
+    <string name="favourite">Избранное</string>
+    <string name="settings">Настройки</string>
+    <string name="navigation_one_tittle">Заархивировать</string>
+    <string name="navigation_two_tittle">Отправить</string>
+    <string name="search">Поиск</string>
+    <string name="ch_current_image">Сегодняшняя</string>
+    <string name="ch_yesterday_image">Вчерашняя</string>
+    <string name="day_before_yesterday">Позавчерашняя</string>
+    <string name="fab_description">open second</string>
+    <string name="theme_indigo">Индиго</string>
+    <string name="theme_pink">Розовая</string>
+    <string name="theme_apply_text">Тема \"%s\" применена</string>
+
+    <string-array name="image_tab_names">
+        <item>Сегодняшняя</item>
+        <item>Вчерашняя</item>
+        <item>Позавчерашняя</item>
+    </string-array>
 </resources>
