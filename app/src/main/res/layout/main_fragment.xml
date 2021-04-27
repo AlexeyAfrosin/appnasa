@@ -5,75 +5,49 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.core.widget.NestedScrollView
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:padding="@dimen/padding_10dp"
+        tools:context=".view.MainFragment">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/main"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="@dimen/padding_10dp"
-            tools:context=".view.MainFragment">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/wiki_input_layout"
+            style="@style/EditText"
+            android:layout_width="@dimen/windtx_0_dp"
+            android:layout_height="wrap_content"
+            app:boxCornerRadiusBottomEnd="@dimen/wiki_corner_radius"
+            app:boxCornerRadiusBottomStart="@dimen/wiki_corner_radius"
+            app:boxCornerRadiusTopEnd="@dimen/wiki_corner_radius"
+            app:boxCornerRadiusTopStart="@dimen/wiki_corner_radius"
+            app:counterEnabled="true"
+            app:counterMaxLength="20"
+            app:endIconCheckable="true"
+            app:endIconDrawable="@drawable/ic_wikipedia"
+            app:endIconMode="custom"
+            app:helperText="@string/wiki_search_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/wiki_input_layout"
-                style="@style/EditText"
-                android:layout_width="@dimen/windtx_0_dp"
-                android:layout_height="wrap_content"
-                app:boxCornerRadiusBottomEnd="@dimen/wiki_corner_radius"
-                app:boxCornerRadiusBottomStart="@dimen/wiki_corner_radius"
-                app:boxCornerRadiusTopEnd="@dimen/wiki_corner_radius"
-                app:boxCornerRadiusTopStart="@dimen/wiki_corner_radius"
-                app:counterEnabled="true"
-                app:counterMaxLength="20"
-                app:endIconCheckable="true"
-                app:endIconDrawable="@drawable/ic_wikipedia"
-                app:endIconMode="custom"
-                app:helperText="@string/wiki_search_hint"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/wiki_search_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <include
-                android:id="@+id/include_fragment_chips"
-                layout="@layout/fragment_chips"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/padding_10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/wiki_input_layout" />
-
-            <com.afrosin.appnasa.utils.EquilateralImageView
-                android:id="@+id/current_image"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/wiki_search_text"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_marginTop="@dimen/padding_10dp"
-                android:contentDescription="@string/current_image"
-                android:scaleType="fitCenter"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/include_fragment_chips"
-                app:srcCompat="@drawable/ic_baseline_broken_image" />
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.core.widget.NestedScrollView>
-
-
-    <include
-        android:id="@+id/include_bottom_sheet_layout"
-        layout="@layout/bottom_sheet_layout" />
+        <include
+            android:id="@+id/include_view_pager_fragment"
+            layout="@layout/view_pager_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/wiki_input_layout" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottom_app_bar"
