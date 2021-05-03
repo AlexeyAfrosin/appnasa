@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import coil.api.load
@@ -14,11 +13,9 @@ import com.afrosin.appnasa.databinding.FragmentPictureOfTheDayBinding
 import com.afrosin.appnasa.utils.dateToStr
 import com.afrosin.appnasa.utils.getDate
 import com.afrosin.appnasa.viewmodel.MainViewModel
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 class PictureOfTheDayFragment(private val addDayCount: Int) : Fragment() {
 
-    private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
 
     private var _binding: FragmentPictureOfTheDayBinding? = null
     private val binding get() = _binding!!
@@ -50,23 +47,13 @@ class PictureOfTheDayFragment(private val addDayCount: Int) : Fragment() {
         viewModel.sendServerRequest(dateToStr(getDate(addDayCount)))
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        setBottomSheetBehavior(binding.includeBottomSheetLayout.bottomSheetContainer)
-    }
-
-    private fun setBottomSheetBehavior(bottomSheet: ConstraintLayout) {
-        bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
-        bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
-    }
-
     private fun renderData(appState: AppState) {
         when (appState) {
             is AppState.Success -> {
                 val pictureDTO = appState.pictureDTO
                 val url = pictureDTO.url
 
-                binding.includeBottomSheetLayout.bottomSheetDescription.text =
+                binding.includePictureDescriptionLayout.sheetDescription.text =
                     pictureDTO.explanation
 
                 if (url.isNullOrEmpty()) {
@@ -90,10 +77,10 @@ class PictureOfTheDayFragment(private val addDayCount: Int) : Fragment() {
                     }
                 }
             }
-            is AppState.Error -> {
-            }
-            is AppState.Loading -> {
-            }
+//            is AppState.Error -> {
+//            }
+//            is AppState.Loading -> {
+//            }
         }
 
     }

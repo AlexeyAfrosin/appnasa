@@ -6,37 +6,53 @@
     android:layout_height="match_parent"
     tools:context=".view.PictureOfTheDayFragment">
 
-
-    <com.afrosin.appnasa.utils.EquilateralImageView
-        android:id="@+id/current_image"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="@dimen/current_image_margin_top"
-        android:contentDescription="@string/current_image"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_broken_image" />
+        android:background="@android:color/transparent"
+        android:fitsSystemWindows="false">
 
-    <WebView
-        android:id="@+id/web_view_youtube"
-        android:layout_width="@dimen/web_view_youtube_width"
-        android:layout_height="@dimen/web_view_youtube_height"
-        android:layout_gravity="center"
-        android:scaleType="fitCenter"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible" />
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="false"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:toolbarId="@+id/toolbar">
 
+            <com.afrosin.appnasa.utils.EquilateralImageView
+                android:id="@+id/current_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/current_image_margin_top"
+                android:contentDescription="@string/current_image"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_baseline_broken_image" />
+
+            <WebView
+                android:id="@+id/web_view_youtube"
+                android:layout_width="@dimen/web_view_youtube_width"
+                android:layout_height="@dimen/web_view_youtube_height"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <include
-        android:id="@+id/include_bottom_sheet_layout"
-        layout="@layout/bottom_sheet_layout" />
+        android:id="@+id/include_picture_description_layout"
+        layout="@layout/picture_of_the_day_description_layout" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
