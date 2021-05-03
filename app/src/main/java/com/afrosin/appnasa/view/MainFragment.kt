@@ -122,10 +122,11 @@ class MainFragment : Fragment() {
                     }
                 }
             }
-            is AppState.Error -> {
-            }
-            is AppState.Loading -> {
-            }
+//            TODO добавить обработку событий ниже
+//            is AppState.Error -> {
+//            }
+//            is AppState.Loading -> {
+//            }
         }
 
     }
