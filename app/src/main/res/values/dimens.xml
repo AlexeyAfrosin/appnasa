@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding_10dp">10dp</dimen>
+    <dimen name="wiki_corner_radius">10dp</dimen>
+    <dimen name="bottom_sheet_container_peek_height">100dp</dimen>
+    <dimen name="top_5dp">5dp</dimen>
+    <dimen name="bottom_sheet_line_width">25dp</dimen>
+    <dimen name="bottom_sheet_line_height">1dp</dimen>
+    <dimen name="margin_8dp">8dp</dimen>
+</resources>
