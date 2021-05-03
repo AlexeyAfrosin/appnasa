@@ -9,6 +9,7 @@
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
         android:padding="@dimen/padding_10dp"
         app:layoutDescription="@xml/mail_layout_motion_scene_swipe"
         tools:context=".view.MainFragment">
@@ -19,10 +20,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/iv_wiki_button_margin_start"
             android:layout_marginEnd="@dimen/margin_8dp"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="@+id/wiki_input_layout"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/wiki_input_layout"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_wikipedia" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -40,9 +40,8 @@
             app:endIconDrawable="@drawable/ic_wikipedia"
             app:endIconMode="custom"
             app:helperText="@string/wiki_search_hint"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintBottom_toTopOf="@+id/include_view_pager_fragment"
+            app:layout_constraintStart_toEndOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/wiki_search_text"
@@ -60,6 +59,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/wiki_input_layout" />
     </androidx.constraintlayout.motion.widget.MotionLayout>
+
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottom_app_bar"

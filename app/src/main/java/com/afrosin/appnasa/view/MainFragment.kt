@@ -8,13 +8,13 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.afrosin.appnasa.R
-import com.afrosin.appnasa.databinding.MainFragmentBinding
+import com.afrosin.appnasa.databinding.StartMainFragmentBinding
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.tabs.TabLayoutMediator
 
 class MainFragment : Fragment() {
 
-    private var _binding: MainFragmentBinding? = null
+    private var _binding: StartMainFragmentBinding? = null
     private val binding get() = _binding!!
 
     companion object {
@@ -26,7 +26,7 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = MainFragmentBinding.inflate(inflater, container, false)
+        _binding = StartMainFragmentBinding.inflate(inflater, container, false)
         binding.wikiInputLayout.setEndIconOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW).apply {
                 data =
