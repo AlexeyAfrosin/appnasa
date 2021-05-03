@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.AppNasa" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.AppNasa" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_200</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -12,5 +12,59 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
+        <item name="fontFamily">@font/alegreya_sans_italic</item>
+        <item name="android:fontFamily">@font/alegreya_sans_italic</item>
+
+        <item name="shapeAppearanceSmallComponent">@style/AppAppearance.SmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/AppAppearance.MediumComponent</item>
+        <item name="materialButtonStyle">@style/AppButton</item>
+        <item name="textInputStyle">@style/EditText</item>
+        <item name="android:forceDarkAllowed">true</item>
     </style>
+
+    <style name="AppAppearance.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">2dp</item>
+    </style>
+
+    <style name="AppAppearance.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">12dp</item>
+    </style>
+
+    <style name="AppTextAppearance.Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="android:fontFamily">@font/alegreya_sans_italic</item>
+    </style>
+
+
+    <style name="IndigoTheme" parent="Theme.AppNasa">
+        <item name="colorPrimaryDark">@color/indigo_dark</item>
+        <item name="colorAccent">@color/indigo_light</item>
+        <item name="textColorPrimary">@color/black</item>
+        <item name="textColorSecondary">@android:color/holo_red_dark</item>
+        <item name="textColorConnected">@color/green</item>
+        <item name="textColorDisConnected">@color/light_gray</item>
+        <item name="themeColorPrimary">@color/indigo</item>
+    </style>
+
+    <style name="PinkTheme" parent="Theme.AppNasa">
+        <item name="colorPrimaryDark">@color/pink_dark</item>
+        <item name="colorAccent">@color/pinkLight</item>
+        <item name="textColorPrimary">@color/black</item>
+        <item name="textColorConnected">@color/green</item>
+        <item name="textColorDisConnected">@color/light_gray</item>
+        <item name="themeColorPrimary">@color/pink</item>
+    </style>
+
+    <style name="AppButton" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">?attr/colorAccent</item>
+    </style>
+
+    <style name="EditText" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundColor">@color/text_field_background</item>
+        <item name="errorTextColor">@android:color/holo_green_light</item>
+
+    </style>
+
 </resources>

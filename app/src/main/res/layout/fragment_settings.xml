@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.chip.ChipGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/gr_select_app_theme"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/padding_10dp"
+    app:selectionRequired="true"
+    app:singleSelection="true">
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/gr_ch_theme_indigo"
+        style="@style/Widget.MaterialComponents.Chip.Filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="@string/theme_indigo" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/gr_ch_theme_pink"
+        style="@style/Widget.MaterialComponents.Chip.Filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/theme_pink" />
+</com.google.android.material.chip.ChipGroup>

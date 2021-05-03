@@ -1,8 +1,8 @@
-package com.afrosin.appnasa
+package com.afrosin.appnasa.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.afrosin.appnasa.ui.main.MainFragment
+import androidx.appcompat.app.AppCompatActivity
+import com.afrosin.appnasa.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -11,8 +11,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.main_activity)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                    .replace(R.id.container, MainFragment.newInstance())
-                    .commitNow()
+                .replace(R.id.container, MainFragment.newInstance())
+                .commitNow()
         }
     }
 }
