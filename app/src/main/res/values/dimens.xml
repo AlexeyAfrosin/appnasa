@@ -2,9 +2,29 @@
 <resources>
     <dimen name="padding_10dp">10dp</dimen>
     <dimen name="wiki_corner_radius">10dp</dimen>
-    <dimen name="bottom_sheet_container_peek_height">100dp</dimen>
+    <dimen name="bottom_sheet_container_peek_height">50dp</dimen>
     <dimen name="top_5dp">5dp</dimen>
     <dimen name="bottom_sheet_line_width">25dp</dimen>
     <dimen name="bottom_sheet_line_height">1dp</dimen>
     <dimen name="margin_8dp">8dp</dimen>
+    <dimen name="width_0_dp">0dp</dimen>
+    <dimen name="swipe_indicator_height">8dp</dimen>
+    <dimen name="swipe_indicator_width">8dp</dimen>
+    <dimen name="swipe_indicator_margin_bottom">20dp</dimen>
+    <dimen name="ci_swipe_indicator_margin_bottom">30dp</dimen>
+    <dimen name="ci_swipe_indicator_height">48dp</dimen>
+    <dimen name="ci_swipe_indicator_margin_top">10dp</dimen>
+    <dimen name="current_image_margin_top">5dp</dimen>
+    <dimen name="web_view_youtube_width">400dp</dimen>
+    <dimen name="web_view_youtube_height">400dp</dimen>
+    <dimen name="iv_wiki_button_margin_start">10dp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="iv_wiki_button_margin_top">-2dp</dimen>
+    <dimen name="option_one_container_padding_end">32dp</dimen>
+    <dimen name="option_one_container_padding_bottom">32dp</dimen>
+    <dimen name="option_two_container_padding_end">32dp</dimen>
+    <dimen name="option_two_container_padding_bottom">32dp</dimen>
+    <dimen name="plus_image_view_fab_margin_end">32dp</dimen>
+    <dimen name="plus_image_view_fab_margin_bottom">32dp</dimen>
+    <dimen name="plus_image_view_fab_elevation">10dp</dimen>
 </resources>
