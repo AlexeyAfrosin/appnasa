@@ -1,25 +1,27 @@
 package com.afrosin.appnasa.view
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
+import android.animation.ObjectAnimator
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.afrosin.appnasa.R
 import com.afrosin.appnasa.databinding.StartMainFragmentBinding
-import com.google.android.material.bottomappbar.BottomAppBar
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayoutMediator
 
 class MainFragment : Fragment() {
 
     private var _binding: StartMainFragmentBinding? = null
     private val binding get() = _binding!!
+    private var isExpandedFAB = false
 
     companion object {
         fun newInstance() = MainFragment()
-        private var isMain = true
     }
 
     override fun onCreateView(
@@ -94,43 +96,119 @@ class MainFragment : Fragment() {
 
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-    }
-
     private fun setBottomAppBar(view: View) {
         val context = activity as MainActivity
         context.setSupportActionBar(view.findViewById(R.id.bottom_app_bar))
-
-        binding.floatingActionButton.setOnClickListener {
-            if (isMain) {
-                isMain = false
-                binding.bottomAppBar.navigationIcon = null
-                binding.bottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_END
-                binding.floatingActionButton.setImageDrawable(
-                    ContextCompat.getDrawable(
-                        context,
-                        R.drawable.ic_back_fab
-                    )
-                )
-                binding.bottomAppBar.replaceMenu(R.menu.menu_bottom_bar)
-            } else {
-                isMain = true
-                binding.bottomAppBar.navigationIcon =
-                    ContextCompat.getDrawable(context, R.drawable.ic_baseline_hamburger)
-                binding.bottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
-                binding.floatingActionButton.setImageDrawable(
-                    ContextCompat.getDrawable(
-                        context,
-                        R.drawable.ic_plus_fab
-                    )
-                )
-                binding.bottomAppBar.replaceMenu(R.menu.menu_bottom_bar)
-            }
-        }
-
+        setFAB()
         setHasOptionsMenu(true)
-
     }
 
+    private fun setFAB() {
+        setInitialState()
+
+        binding.floatingActionButton.setOnClickListener {
+            if (isExpandedFAB) {
+                collapseFab()
+            } else {
+                expandFAB()
+            }
+        }
+    }
+
+    private fun setInitialState() {
+        binding.transparentBackground.apply {
+            alpha = 0f
+        }
+        binding.optionTwoContainer.apply {
+            alpha = 0f
+            isClickable = false
+        }
+        binding.optionOneContainer.apply {
+            alpha = 0f
+            isClickable = false
+        }
+    }
+
+    private fun expandFAB() {
+        isExpandedFAB = true
+        ObjectAnimator.ofFloat(binding.plusImageViewFab, "rotation", 0f, 225f).start()
+        ObjectAnimator.ofFloat(binding.optionTwoContainer, "translationY", -130f).start()
+        ObjectAnimator.ofFloat(binding.optionOneContainer, "translationY", -250f).start()
+
+        binding.optionTwoContainer.animate()
+            .alpha(1f)
+            .setDuration(300)
+            .setListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator) {
+                    binding.optionTwoContainer.isClickable = true
+                    binding.optionTwoContainer.setOnClickListener {
+                        Snackbar
+                            .make(
+                                binding.optionTwoText,
+                                getString(R.string.option_two_text),
+                                Snackbar.LENGTH_LONG
+                            )
+                            .show()
+                    }
+                }
+            })
+        binding.optionOneContainer.animate()
+            .alpha(1f)
+            .setDuration(300)
+            .setListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator) {
+                    binding.optionOneContainer.isClickable = true
+                    binding.optionOneContainer.setOnClickListener {
+                        Snackbar
+                            .make(
+                                binding.optionTwoText,
+                                getString(R.string.option_one_text),
+                                Snackbar.LENGTH_LONG
+                            )
+                            .show()
+                    }
+                }
+            })
+        binding.transparentBackground.animate()
+            .alpha(0.9f)
+            .setDuration(300)
+            .setListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator) {
+                    binding.transparentBackground.isClickable = true
+                }
+            })
+    }
+
+    private fun collapseFab() {
+        isExpandedFAB = false
+        ObjectAnimator.ofFloat(binding.plusImageViewFab, "rotation", 0f, -180f).start()
+        ObjectAnimator.ofFloat(binding.optionTwoContainer, "translationY", 0f).start()
+        ObjectAnimator.ofFloat(binding.optionOneContainer, "translationY", 0f).start()
+
+        binding.optionTwoContainer.animate()
+            .alpha(0f)
+            .setDuration(300)
+            .setListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator) {
+                    binding.optionTwoContainer.isClickable = false
+                    binding.optionTwoContainer.setOnClickListener(null)
+                }
+            })
+        binding.optionOneContainer.animate()
+            .alpha(0f)
+            .setDuration(300)
+            .setListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator) {
+                    binding.optionOneContainer.isClickable = false
+                }
+            })
+        binding.transparentBackground.animate()
+            .alpha(0f)
+            .setDuration(300)
+            .setListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator) {
+                    binding.transparentBackground.isClickable = false
+                }
+            })
+    }
 }

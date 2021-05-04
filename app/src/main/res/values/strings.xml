@@ -14,6 +14,8 @@
     <string name="theme_indigo">Индиго</string>
     <string name="theme_pink">Розовая</string>
     <string name="theme_apply_text">Тема \"%s\" применена</string>
+    <string name="option_one_text">Заархивировать</string>
+    <string name="option_two_text">Отправить</string>
 
     <string-array name="image_tab_names">
         <item>Сегодняшняя</item>

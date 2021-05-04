@@ -4,9 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.transition.ChangeBounds
+import androidx.transition.ChangeImageTransform
+import androidx.transition.TransitionManager
+import androidx.transition.TransitionSet
 import coil.api.load
 import com.afrosin.appnasa.R
 import com.afrosin.appnasa.databinding.FragmentPictureOfTheDayBinding
@@ -19,6 +24,7 @@ class PictureOfTheDayFragment(private val addDayCount: Int) : Fragment() {
 
     private var _binding: FragmentPictureOfTheDayBinding? = null
     private val binding get() = _binding!!
+    private var isExpanded = false
 
     private val viewModel: MainViewModel by lazy {
         ViewModelProvider(this).get(MainViewModel::class.java)
@@ -73,6 +79,28 @@ class PictureOfTheDayFragment(private val addDayCount: Int) : Fragment() {
                             lifecycle(viewLifecycleOwner)
                             error(R.drawable.ic_baseline_error_24)
                             placeholder(R.drawable.ic_baseline_broken_image)
+                        }
+                        binding.currentImage.setOnClickListener {
+                            isExpanded = !isExpanded
+
+                            TransitionManager.beginDelayedTransition(
+                                binding.toolbarLayout, TransitionSet()
+                                    .addTransition(ChangeBounds())
+                                    .addTransition(ChangeImageTransform())
+                            )
+
+                            val params: ViewGroup.LayoutParams = binding.currentImage.layoutParams
+
+                            if (isExpanded) {
+                                params.height = ViewGroup.LayoutParams.MATCH_PARENT
+                                binding.currentImage.scaleType = ImageView.ScaleType.CENTER_CROP
+                            } else {
+                                params.height = ViewGroup.LayoutParams.WRAP_CONTENT
+                                binding.currentImage.scaleType = ImageView.ScaleType.FIT_CENTER
+                            }
+
+                            binding.currentImage.layoutParams = params
+
                         }
                     }
                 }
