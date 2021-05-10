@@ -19,8 +19,8 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/wiki_input_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0dp"
+                style="@style/EditText"
+                android:layout_width="@dimen/windtx_0_dp"
                 android:layout_height="wrap_content"
                 app:boxCornerRadiusBottomEnd="@dimen/wiki_corner_radius"
                 app:boxCornerRadiusBottomStart="@dimen/wiki_corner_radius"
@@ -90,7 +90,7 @@
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/fab_description"
         app:layout_anchor="@+id/bottom_app_bar"
-        app:srcCompat="@drawable/ic_plus_fab"
-        android:contentDescription="@string/fab_description" />
+        app:srcCompat="@drawable/ic_plus_fab" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -7,4 +7,5 @@
     <dimen name="bottom_sheet_line_width">25dp</dimen>
     <dimen name="bottom_sheet_line_height">1dp</dimen>
     <dimen name="margin_8dp">8dp</dimen>
+    <dimen name="windtx_0_dp">0dp</dimen>
 </resources>

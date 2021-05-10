@@ -11,4 +11,7 @@
     <string name="ch_yesterday_image">Вчерашняя</string>
     <string name="day_before_yesterday">Позавчерашняя</string>
     <string name="fab_description">open second</string>
+    <string name="theme_indigo">Индиго</string>
+    <string name="theme_pink">Розовая</string>
+    <string name="theme_apply_text">Тема \"%s\" применена</string>
 </resources>
