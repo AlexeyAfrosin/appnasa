@@ -41,6 +41,16 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
                     getString(R.string.navigation_two_tittle),
                     Toast.LENGTH_SHORT
                 ).show()
+                R.id.navigation_to_do_list -> {
+                    activity
+                        ?.supportFragmentManager
+                        ?.beginTransaction()
+                        ?.replace(R.id.container, ToDoListFragment.newInstance())
+                        ?.addToBackStack(null)
+                        ?.commit()
+
+                    dismiss()
+                }
             }
             true
         }

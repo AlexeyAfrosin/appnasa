@@ -11,6 +11,10 @@
             android:id="@+id/navigation_two"
             android:icon="@drawable/ic_send"
             android:title="@string/navigation_two_tittle" />
+        <item
+            android:id="@+id/navigation_to_do_list"
+            android:icon="@drawable/ic_baseline_checklist_24"
+            android:title="@string/todo_list" />
     </group>
 
 </menu>

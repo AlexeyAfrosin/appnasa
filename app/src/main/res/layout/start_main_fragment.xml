@@ -9,6 +9,7 @@
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
         android:padding="@dimen/padding_10dp"
         app:layoutDescription="@xml/mail_layout_motion_scene_swipe"
         tools:context=".view.MainFragment">
@@ -19,10 +20,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/iv_wiki_button_margin_start"
             android:layout_marginEnd="@dimen/margin_8dp"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="@+id/wiki_input_layout"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/wiki_input_layout"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_wikipedia" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -40,9 +40,8 @@
             app:endIconDrawable="@drawable/ic_wikipedia"
             app:endIconMode="custom"
             app:helperText="@string/wiki_search_hint"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintBottom_toTopOf="@+id/include_view_pager_fragment"
+            app:layout_constraintStart_toEndOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/wiki_search_text"
@@ -122,9 +121,7 @@
                 android:layout_gravity="bottom|end"
                 app:srcCompat="@drawable/ic_send" />
         </LinearLayout>
-
     </FrameLayout>
-
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottom_app_bar"
@@ -148,10 +145,11 @@
         android:id="@+id/plus_image_view_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/plus_image_view_fab_margin_end"
         android:layout_marginBottom="@dimen/plus_image_view_fab_margin_bottom"
         android:elevation="@dimen/plus_image_view_fab_elevation"
         app:layout_anchor="@+id/floatingActionButton"
         app:layout_anchorGravity="center_horizontal|center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_plus_fab" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
