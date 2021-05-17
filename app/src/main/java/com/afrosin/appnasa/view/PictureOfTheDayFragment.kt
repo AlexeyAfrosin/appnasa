@@ -105,11 +105,6 @@ class PictureOfTheDayFragment(private val addDayCount: Int) : Fragment() {
                     }
                 }
             }
-//            is AppState.Error -> {
-//            }
-//            is AppState.Loading -> {
-//            }
         }
-
     }
 }
