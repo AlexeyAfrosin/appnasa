@@ -1,10 +1,18 @@
 package com.afrosin.appnasa.view
 
+import android.graphics.Color
+import android.graphics.Typeface
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
+import android.text.style.StyleSpan
+import android.text.style.UnderlineSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -59,8 +67,11 @@ class PictureOfTheDayFragment(private val addDayCount: Int) : Fragment() {
                 val pictureDTO = appState.pictureDTO
                 val url = pictureDTO.url
 
-                binding.includePictureDescriptionLayout.sheetDescription.text =
+                formatText(
+                    binding.includePictureDescriptionLayout.sheetDescription,
                     pictureDTO.explanation
+                )
+
 
                 if (url.isNullOrEmpty()) {
                     Toast.makeText(context, "Ссылка на картинку отсутсвует", Toast.LENGTH_SHORT)
@@ -106,5 +117,44 @@ class PictureOfTheDayFragment(private val addDayCount: Int) : Fragment() {
                 }
             }
         }
+    }
+
+    private fun formatText(textView: TextView, text: String?) {
+
+        if (!text.isNullOrEmpty()) {
+            val textTmp = text.replace("   ", "\n").replace("  ", "\n")
+            val spannable = SpannableString(textTmp)
+
+            val sentences = textTmp.split("\n")
+            var startPos = 0
+            var endPos = 1
+
+            sentences.forEach {
+
+                spannable.setSpan(
+                    ForegroundColorSpan(Color.BLACK),
+                    startPos,
+                    endPos,
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
+                spannable.setSpan(
+                    StyleSpan(Typeface.BOLD_ITALIC),
+                    startPos,
+                    endPos,
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
+                spannable.setSpan(
+                    UnderlineSpan(),
+                    startPos,
+                    endPos,
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
+                startPos += it.length + 1
+                endPos = startPos + 1
+            }
+
+            textView.text = spannable
+        }
+
     }
 }
